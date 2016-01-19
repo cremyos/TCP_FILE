@@ -1,9 +1,9 @@
 /*
  *************************************************
- *Name : send_file.c                       *
- *Date : 2015-04-15                        *
- *Author : Sniper                          *
- *Aim : Client send the file to the Server.*
+ *Name : TCP_Client.c                            *
+ *Date : 2016-01-19                              *
+ *Author : sniper                                *
+ *Aim : Client send the file to the Server.      *
  *************************************************
  */
 
@@ -43,8 +43,9 @@ int main(int argc,char *argv[])
 	 */	
 	bzero(&s_add,sizeof(struct sockaddr_in));
 	s_add.sin_family = AF_INET;
+	
 	/*
-	 *change the VM address
+	 *change the Server address
 	 */
 	s_add.sin_addr.s_addr = inet_addr("192.168.0.120");//change the string to 32-bit internet byte.
 	s_add.sin_port=htons(portnum);
@@ -58,7 +59,7 @@ int main(int argc,char *argv[])
 		printf("Connect Success!\n");
 	
 	/*
-	 *Send the file
+	 *Get the file
 	 */	
 	char filepath[1000];
 	printf("please input the file's path : ");
@@ -81,7 +82,7 @@ int main(int argc,char *argv[])
 	printf("filename is %s \n",filename);
 	
 	/*
-	 *Send the file name to Server.
+	 *Send the file's name to Server.
 	 */
 	len=send(socketfd,filename,strlen(filename),0);
 	if(len<0)  

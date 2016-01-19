@@ -1,11 +1,9 @@
 /*
  ************************************************
- *Name : receive_file.c                   *
- *Date : 2015-04-15                       *
- *Author : Sniper                         *
- *Aim : Service can receive more than one *
- *      Client that send the file.The main*
- *      target is to get the file.        *
+ *Name : TCP_Server.c                           *
+ *Date : 2016-01-19                             *
+ *Author : sniper                               *
+ *Aim : Server get the file from the Client.    *
  ************************************************
  */
 #include <stdio.h>
@@ -45,7 +43,7 @@ void *print_message(void *arg)
         pthread_detach(ntid);
 
         /*
-         *receive the file name
+         *receive the file's name
          */
         char filename[1000];
 
